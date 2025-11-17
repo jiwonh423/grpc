@@ -2,7 +2,8 @@ package main
 
 import (
 	"flag"
-	"fmt"
+	// "fmt"
+	"grpc/cmd"
 	"grpc/config"
 )
 
@@ -10,7 +11,8 @@ var configFlag = flag.String("config","./config.toml","config path")
 func main(){
 	flag.Parse()
 
-	fmt.Println(*configFlag)
+	// fmt.Println(*configFlag)
 	
-	config.NewConfig(*configFlag)
+	cfg := config.NewConfig(*configFlag)
+	cmd.NewApp(cfg)
 }
